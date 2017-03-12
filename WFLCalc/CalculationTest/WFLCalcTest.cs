@@ -30,5 +30,12 @@ namespace CalculationTest
             vdot = new VdotCalculator(42200, new TimeSpan(2, 49, 3));
             Assert.AreEqual(62066, vdot.GetWingsForLifeEstimatedResult());
         }
+
+        [TestMethod]
+        public void TestUtils()
+        {
+            Assert.AreEqual(new TimeSpan(0, 5, 0), RunningUtils.GetPace(10000, new TimeSpan(0, 50, 0)));
+            Assert.AreEqual(new TimeSpan(0, 4, 4), RunningUtils.GetPace(62000, new TimeSpan(4, 12, 0)));
+        }
     }
 }
