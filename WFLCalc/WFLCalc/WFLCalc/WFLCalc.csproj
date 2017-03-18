@@ -33,20 +33,20 @@
     <ConsolePause>false</ConsolePause>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="IVdotCalculator.cs" />
-    <Compile Include="CalculatorPage.xaml.cs">
+    <Compile Include="Code\IVdotCalculator.cs" />
+    <Compile Include="UI\CalculatorPage.xaml.cs">
       <DependentUpon>CalculatorPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="RunningUtils.cs" />
-    <Compile Include="VdotCalculator.cs" />
+    <Compile Include="Code\RunningUtils.cs" />
+    <Compile Include="Code\VdotCalculator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="WingsForLifeModel.cs" />
+    <Compile Include="Code\WingsForLifeModel.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="CalculatorPage.xaml">
+    <EmbeddedResource Include="UI\CalculatorPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
