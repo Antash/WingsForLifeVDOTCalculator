@@ -11,13 +11,25 @@ namespace WFLCalc.UI
 {
     internal class CalculatorViewModel : INotifyPropertyChanged
     {
+        public struct DistanceSample
+        {
+            public int Meters { get; private set; }
+            public string Display { get; private set; }
+
+            public DistanceSample(int distance, string displayValue)
+            {
+                Meters = distance;
+                Display = displayValue;
+            }
+        }
+
         private IVdotCalculator vDotCalculator;
         private TimeSpan time;
-        private double distance;
+        private DistanceSample distance;
 
-        public IList<double> SampleDistances { get; private set; }
+        public IList<DistanceSample> SampleDistances { get; private set; }
 
-        public double SelectedDistance
+        public DistanceSample SelectedDistance
         {
             get
             {
@@ -26,7 +38,7 @@ namespace WFLCalc.UI
             set
             {
                 distance = value;
-                vDotCalculator = new VdotCalculator((int)(distance * 1000), time);
+                vDotCalculator = new VdotCalculator(distance.Meters, time);
                 OnPropertyChanged("SelectedDistance");
             }
         }
@@ -40,7 +52,7 @@ namespace WFLCalc.UI
             set
             {
                 time = value;
-                vDotCalculator = new VdotCalculator((int)(distance * 1000), time);
+                vDotCalculator = new VdotCalculator(distance.Meters, time);
                 OnPropertyChanged("SampleTime");
             }
         }
@@ -60,8 +72,16 @@ namespace WFLCalc.UI
 
         public CalculatorViewModel()
         {
-            SampleDistances = new List<double> { 3, 5, 10, 21.1, 42.2 };
-            vDotCalculator = new VdotCalculator((int)(distance * 1000), time);
+            SampleDistances = new List<DistanceSample>
+            {
+                new DistanceSample(3000, "3K"),
+                new DistanceSample(5000, "5K"),
+                new DistanceSample(10000, "10K"),
+                new DistanceSample(21100, "Half Marathon"),
+                new DistanceSample(42195, "Marathon"),
+            };
+            SelectedDistance = SampleDistances[0];
+            vDotCalculator = new VdotCalculator(distance.Meters, time);
             IncreaseVdotCommand = new Command(() => ChangeVdot(1));
             DecreaseVdotCommand = new Command(() => ChangeVdot(-1));
             CalculateVdotCommand = new Command(CalculateVdot);
@@ -81,8 +101,10 @@ namespace WFLCalc.UI
 
             Vdot = vDotCalculator.GetVdot();
             WFLRunEstimationDistance = vDotCalculator.GetWingsForLifeEstimatedResult();
+            SampleTime = vDotCalculator.GetTime(distance.Meters);
             OnPropertyChanged("Vdot");
             OnPropertyChanged("WFLRunEstimationDistance");
+            OnPropertyChanged("SampleTime");
         }
 
         protected virtual void OnPropertyChanged(string propertyName)

@@ -123,4 +123,13 @@
   <data name="I_can_run_text" xml:space="preserve">
     <value>I can run</value>
   </data>
+  <data name="Calculate_text" xml:space="preserve">
+    <value>Estimate</value>
+  </data>
+  <data name="I_will_try_to_run_text" xml:space="preserve">
+    <value>I will try to run {0} m until the Catcher Car overtakes you.</value>
+  </data>
+  <data name="My_vdot_is_text" xml:space="preserve">
+    <value>My VDOT is</value>
+  </data>
 </root>

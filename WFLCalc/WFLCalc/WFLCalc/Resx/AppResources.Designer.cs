@@ -62,6 +62,15 @@ namespace WFLCalc.Resx {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Estimate.
+        /// </summary>
+        internal static string Calculate_text {
+            get {
+                return ResourceManager.GetString("Calculate_text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to I can run.
         /// </summary>
         internal static string I_can_run_text {
@@ -71,11 +80,29 @@ namespace WFLCalc.Resx {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to I will try to run {0} m until the Catcher Car overtakes you..
+        /// </summary>
+        internal static string I_will_try_to_run_text {
+            get {
+                return ResourceManager.GetString("I_will_try_to_run_text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to in.
         /// </summary>
         internal static string In_text {
             get {
                 return ResourceManager.GetString("In_text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to My VDOT is.
+        /// </summary>
+        internal static string My_vdot_is_text {
+            get {
+                return ResourceManager.GetString("My_vdot_is_text", resourceCulture);
             }
         }
     }

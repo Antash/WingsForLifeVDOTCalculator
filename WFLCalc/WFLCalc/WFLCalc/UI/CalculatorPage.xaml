@@ -8,7 +8,7 @@
     <StackLayout x:Name="lMain" Spacing="8">
         <StackLayout x:Name="lInput" Spacing="8" Orientation="Horizontal">
             <Label Text="{i18n:Translate I_can_run_text}" FontSize="Medium"/>
-            <fe:BindablePicker ItemsSource="{Binding SampleDistances}" SelectedItem="{Binding SelectedDistance}"/>
+            <fe:BindablePicker ItemsSource="{Binding SampleDistances}" SelectedItem="{Binding SelectedDistance}" DisplayProperty="Display"/>
             <Label Text="{i18n:Translate In_text}" FontSize="Medium"/>
             <TimePicker Time="{Binding SampleTime}"/>
             <!--<local:TimeIntervalPicker SelectedTime="{Binding SampleTime}"/>-->
@@ -21,8 +21,7 @@
             <Button Command="{Binding IncreaseVdotCommand}" Text="+"/>
         </StackLayout>
         <StackLayout x:Name="lEstimation" Spacing="8" Orientation="Horizontal">
-            <Label Text="{i18n:Translate I_can_run_text}" FontSize="Medium"/>
-            <Label Text="{Binding WFLRunEstimationDistance}" FontSize="Medium"/>
+            <Label Text="{Binding WFLRunEstimationDistance, StringFormat={i18n:Translate I_will_try_to_run_text}}" FontSize="Medium"/>
         </StackLayout>
     </StackLayout>
 </ContentPage>
