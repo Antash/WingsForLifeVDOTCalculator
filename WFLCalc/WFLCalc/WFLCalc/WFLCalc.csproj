@@ -39,6 +39,11 @@
       <DependentUpon>AppResources.resx</DependentUpon>
     </Compile>
     <Compile Include="Code\IVdotCalculator.cs" />
+    <Compile Include="Resx\AppResources.ru.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AppResources.ru.resx</DependentUpon>
+    </Compile>
     <Compile Include="UI\CalculatorPage.xaml.cs">
       <DependentUpon>CalculatorPage.xaml</DependentUpon>
     </Compile>
@@ -49,9 +54,11 @@
     <Compile Include="Code\VdotCalculator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Code\WingsForLifeModel.cs" />
-    <Compile Include="UI\ILocalize.cs" />
-    <Compile Include="UI\PlatformCulture.cs" />
-    <Compile Include="UI\TranslateExtension.cs" />
+    <Compile Include="UI\CalculatorViewModel.cs" />
+    <Compile Include="ILocalize.cs" />
+    <Compile Include="PlatformCulture.cs" />
+    <Compile Include="TranslateExtension.cs" />
+    <Compile Include="UI\TimeIntervalPicker.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resx\AppResources.resx">
@@ -68,6 +75,10 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <Reference Include="FreshEssentials, Version=1.0.6234.27073, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\FreshEssentials.2.1.3\lib\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\FreshEssentials.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Xamarin.Forms.Core, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Xamarin.Forms.2.3.3.193\lib\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.Core.dll</HintPath>
       <Private>True</Private>

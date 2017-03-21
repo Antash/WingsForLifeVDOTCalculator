@@ -7,5 +7,6 @@ namespace WFLCalc
         double GetVdot();
         TimeSpan GetTime(int distance);
         int GetWingsForLifeEstimatedResult();
+        void Tune(double value);
     }
 }

@@ -2,18 +2,27 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:i18n="clr-namespace:WFLCalc;assembly=WFLCalc"
-             xmlns:local="clr-namespace:WFLCalc;assembly=WFLCalc"
-             x:Class="WFLCalc.CalculatorPage">
-    <StackLayout x:Name="stackLayout" Spacing="8">
-        <Label Text="{i18n:Translate Title1}" FontSize="Medium"/>
-        <Label Text="{i18n:TranslateExtension Title1}" FontSize="Medium"/>
-        <StackLayout x:Name="stackLayout2" Spacing="8" Orientation="Horizontal">
-            <Label Text="Первая метка" FontSize="Medium" TextColor="Red"  />
-            <Label Text="Вторая метка" FontSize="Medium" TextColor="Yellow" />
-            <Label Text="Третья метка" FontSize="Medium" TextColor="Green" />
+             xmlns:local="clr-namespace:WFLCalc.UI;assembly=WFLCalc"
+             xmlns:fe="clr-namespace:FreshEssentials;assembly=FreshEssentials"
+             x:Class="WFLCalc.UI.CalculatorPage">
+    <StackLayout x:Name="lMain" Spacing="8">
+        <StackLayout x:Name="lInput" Spacing="8" Orientation="Horizontal">
+            <Label Text="{i18n:Translate I_can_run_text}" FontSize="Medium"/>
+            <fe:BindablePicker ItemsSource="{Binding SampleDistances}" SelectedItem="{Binding SelectedDistance}"/>
+            <Label Text="{i18n:Translate In_text}" FontSize="Medium"/>
+            <TimePicker Time="{Binding SampleTime}"/>
+            <!--<local:TimeIntervalPicker SelectedTime="{Binding SampleTime}"/>-->
         </StackLayout>
-        
-        <Label Text="Вторая метка" FontSize="Medium" TextColor="Yellow" />
-        <Label Text="Третья метка" FontSize="Medium" TextColor="Green" />
+        <Button Text="{i18n:Translate Calculate_text}" Command="{Binding CalculateVdotCommand}"/>
+        <Label Text="{i18n:Translate My_vdot_is_text}" FontSize="Medium"/>
+        <StackLayout x:Name="lVdot" Spacing="8" Orientation="Horizontal">
+            <Button Command="{Binding DecreaseVdotCommand}" Text="-"/>
+            <Label Text="{Binding Vdot}" FontSize="Medium"/>
+            <Button Command="{Binding IncreaseVdotCommand}" Text="+"/>
+        </StackLayout>
+        <StackLayout x:Name="lEstimation" Spacing="8" Orientation="Horizontal">
+            <Label Text="{i18n:Translate I_can_run_text}" FontSize="Medium"/>
+            <Label Text="{Binding WFLRunEstimationDistance}" FontSize="Medium"/>
+        </StackLayout>
     </StackLayout>
 </ContentPage>

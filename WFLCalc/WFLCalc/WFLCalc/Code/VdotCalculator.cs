@@ -64,6 +64,11 @@ namespace WFLCalc
             }
             return distMin;
         }
+
+        public void Tune(double value)
+        {
+            vDot += value;
+        }
     }
 }
 

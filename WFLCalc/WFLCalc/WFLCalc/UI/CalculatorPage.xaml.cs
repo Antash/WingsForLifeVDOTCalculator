@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace WFLCalc
+namespace WFLCalc.UI
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class CalculatorPage : ContentPage
@@ -15,6 +15,7 @@ namespace WFLCalc
         public CalculatorPage()
         {
             InitializeComponent();
+            BindingContext = new CalculatorViewModel();
         }
     }
 }

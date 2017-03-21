@@ -23,7 +23,7 @@ namespace WFLCalc
                 DependencyService.Get<ILocalize>().SetLocale(ci); // set the Thread for locale-aware methods
             }
             
-            MainPage = new CalculatorPage();
+            MainPage = new UI.CalculatorPage();
         }
 
         protected override void OnStart()

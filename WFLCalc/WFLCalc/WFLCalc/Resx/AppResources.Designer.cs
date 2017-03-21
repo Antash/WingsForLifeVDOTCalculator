@@ -64,9 +64,18 @@ namespace WFLCalc.Resx {
         /// <summary>
         ///   Looks up a localized string similar to I can run.
         /// </summary>
-        internal static string Title1 {
+        internal static string I_can_run_text {
             get {
-                return ResourceManager.GetString("Title1", resourceCulture);
+                return ResourceManager.GetString("I_can_run_text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to in.
+        /// </summary>
+        internal static string In_text {
+            get {
+                return ResourceManager.GetString("In_text", resourceCulture);
             }
         }
     }

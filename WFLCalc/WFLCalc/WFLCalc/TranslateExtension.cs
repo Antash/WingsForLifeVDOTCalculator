@@ -35,7 +35,7 @@ namespace WFLCalc
 
             if (translation == null)
             {
-#if DEBUG
+#if aDEBUG
                 throw new ArgumentException(
                     String.Format("Key '{0}' was not found in resources '{1}' for culture '{2}'.", Text, ResourceId, ci.Name),
                     "Text");
