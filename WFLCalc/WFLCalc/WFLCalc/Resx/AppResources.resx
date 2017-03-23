@@ -126,10 +126,37 @@
   <data name="Calculate_text" xml:space="preserve">
     <value>Estimate</value>
   </data>
+  <data name="HMarathon_text" xml:space="preserve">
+    <value>Half Marathon</value>
+  </data>
+  <data name="Hours_text" xml:space="preserve">
+    <value>hours</value>
+  </data>
+  <data name="Hour_text" xml:space="preserve">
+    <value>hour</value>
+  </data>
   <data name="I_will_try_to_run_text" xml:space="preserve">
-    <value>I will try to run {0} m until the Catcher Car overtakes you.</value>
+    <value>I will try to run {0} km until the Catcher Car overtakes me.</value>
+  </data>
+  <data name="Marathon_text" xml:space="preserve">
+    <value>Marathon</value>
+  </data>
+  <data name="Minutes_text" xml:space="preserve">
+    <value>minutes</value>
+  </data>
+  <data name="Minute_text" xml:space="preserve">
+    <value>munute</value>
   </data>
   <data name="My_vdot_is_text" xml:space="preserve">
     <value>My VDOT is</value>
+  </data>
+  <data name="Pace_text" xml:space="preserve">
+    <value>Pace: {0:m\:ss} / km.</value>
+  </data>
+  <data name="Time_on_distance_hm_text" xml:space="preserve">
+    <value>Estimated time on distance: {0:%h} {1} {0:%m} {2}.</value>
+  </data>
+  <data name="Time_on_distance_m_text" xml:space="preserve">
+    <value>Estimated time on distance: {0:%m} minutes.</value>
   </data>
 </root>

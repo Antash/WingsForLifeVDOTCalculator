@@ -71,6 +71,33 @@ namespace WFLCalc.Resx {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Half Marathon.
+        /// </summary>
+        internal static string HMarathon_text {
+            get {
+                return ResourceManager.GetString("HMarathon_text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to hour.
+        /// </summary>
+        internal static string Hour_text {
+            get {
+                return ResourceManager.GetString("Hour_text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to hours.
+        /// </summary>
+        internal static string Hours_text {
+            get {
+                return ResourceManager.GetString("Hours_text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to I can run.
         /// </summary>
         internal static string I_can_run_text {
@@ -80,7 +107,7 @@ namespace WFLCalc.Resx {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to I will try to run {0} m until the Catcher Car overtakes you..
+        ///   Looks up a localized string similar to I will try to run {0} km until the Catcher Car overtakes me..
         /// </summary>
         internal static string I_will_try_to_run_text {
             get {
@@ -98,11 +125,65 @@ namespace WFLCalc.Resx {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Marathon.
+        /// </summary>
+        internal static string Marathon_text {
+            get {
+                return ResourceManager.GetString("Marathon_text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to munute.
+        /// </summary>
+        internal static string Minute_text {
+            get {
+                return ResourceManager.GetString("Minute_text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to minutes.
+        /// </summary>
+        internal static string Minutes_text {
+            get {
+                return ResourceManager.GetString("Minutes_text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to My VDOT is.
         /// </summary>
         internal static string My_vdot_is_text {
             get {
                 return ResourceManager.GetString("My_vdot_is_text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Pace: {0:m\:ss} / km..
+        /// </summary>
+        internal static string Pace_text {
+            get {
+                return ResourceManager.GetString("Pace_text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Estimated time on distance: {0:%h} {1} {0:%m} {2}..
+        /// </summary>
+        internal static string Time_on_distance_hm_text {
+            get {
+                return ResourceManager.GetString("Time_on_distance_hm_text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Estimated time on distance: {0:%m} minutes..
+        /// </summary>
+        internal static string Time_on_distance_m_text {
+            get {
+                return ResourceManager.GetString("Time_on_distance_m_text", resourceCulture);
             }
         }
     }

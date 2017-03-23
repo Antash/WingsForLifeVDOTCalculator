@@ -52,15 +52,26 @@ namespace WFLCalc.UI
             set
             {
                 time = value;
-                vDotCalculator = new VdotCalculator(distance.Meters, time);
-                OnPropertyChanged("SampleTime");
+                if (time.TotalSeconds > 0)
+                {
+                    DataEntered = true;
+                    vDotCalculator = new VdotCalculator(distance.Meters, time);
+                    OnPropertyChanged("SampleTime");
+                    OnPropertyChanged("DataEntered");
+                }
             }
         }
 
-        public double Vdot { get; set; }
-        public double WFLRunEstimationDistance { get; set; }
-        public TimeSpan WFLRunEstimationTime { get; set; }
-        public TimeSpan WFLRunEstimationPace { get; set; }
+        public bool DataEntered { get; set; }
+        public bool VdotExists { get; set; }
+        public double Vdot
+        {
+            get; set;
+        }
+
+        public int WFLRunEstimatedDistance { get; set; }
+        public TimeSpan WFLRunEstimatedTime { get; set; }
+        public TimeSpan WFLRunEstimatedPace { get; set; }
 
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -77,10 +88,13 @@ namespace WFLCalc.UI
                 new DistanceSample(3000, "3K"),
                 new DistanceSample(5000, "5K"),
                 new DistanceSample(10000, "10K"),
-                new DistanceSample(21100, "Half Marathon"),
-                new DistanceSample(42195, "Marathon"),
+                new DistanceSample(15000, "15K"),
+                new DistanceSample(21100, Resx.AppResources.HMarathon_text),
+                new DistanceSample(30000, "30K"),
+                new DistanceSample(42195, Resx.AppResources.Marathon_text),
+                new DistanceSample(100000, "100K"),
             };
-            SelectedDistance = SampleDistances[0];
+            SelectedDistance = SampleDistances[2];
             vDotCalculator = new VdotCalculator(distance.Meters, time);
             IncreaseVdotCommand = new Command(() => ChangeVdot(1));
             DecreaseVdotCommand = new Command(() => ChangeVdot(-1));
@@ -89,22 +103,36 @@ namespace WFLCalc.UI
 
         private void CalculateVdot(object obj)
         {
+            VdotExists = true;
             Vdot = vDotCalculator.GetVdot();
-            WFLRunEstimationDistance = vDotCalculator.GetWingsForLifeEstimatedResult();
+            WFLRunEstimatedDistance = vDotCalculator.GetWingsForLifeEstimatedResult();
+            WFLRunEstimatedTime = vDotCalculator.GetTime(WFLRunEstimatedDistance);
+            WFLRunEstimatedPace = RunningUtils.GetPace(WFLRunEstimatedDistance, WFLRunEstimatedTime);
             OnPropertyChanged("Vdot");
-            OnPropertyChanged("WFLRunEstimationDistance");
+            OnPropertyChanged("WFLRunEstimatedDistance");
+            OnPropertyChanged("WFLRunEstimatedTime");
+            OnPropertyChanged("WFLRunEstimatedPace");
+            OnPropertyChanged("DataEntered");
+            OnPropertyChanged("VdotExists");
         }
 
         private void ChangeVdot(double value)
         {
+            if (Vdot + value < 1)
+            {
+                return;
+            }
             vDotCalculator.Tune(value);
 
             Vdot = vDotCalculator.GetVdot();
-            WFLRunEstimationDistance = vDotCalculator.GetWingsForLifeEstimatedResult();
+            WFLRunEstimatedDistance = vDotCalculator.GetWingsForLifeEstimatedResult();
+            WFLRunEstimatedTime = vDotCalculator.GetTime(WFLRunEstimatedDistance);
+            WFLRunEstimatedPace = RunningUtils.GetPace(WFLRunEstimatedDistance, WFLRunEstimatedTime);
             SampleTime = vDotCalculator.GetTime(distance.Meters);
             OnPropertyChanged("Vdot");
-            OnPropertyChanged("WFLRunEstimationDistance");
-            OnPropertyChanged("SampleTime");
+            OnPropertyChanged("WFLRunEstimatedDistance");
+            OnPropertyChanged("WFLRunEstimatedTime");
+            OnPropertyChanged("WFLRunEstimatedPace");
         }
 
         protected virtual void OnPropertyChanged(string propertyName)

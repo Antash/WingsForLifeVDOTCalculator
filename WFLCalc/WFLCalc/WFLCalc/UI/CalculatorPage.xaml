@@ -5,23 +5,34 @@
              xmlns:local="clr-namespace:WFLCalc.UI;assembly=WFLCalc"
              xmlns:fe="clr-namespace:FreshEssentials;assembly=FreshEssentials"
              x:Class="WFLCalc.UI.CalculatorPage">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <local:WFLDistanceConverter x:Key="WFLDistanceConverter"/>
+            <local:VdotConverter x:Key="VdotConverter"/>
+            <local:WFLTimeConverter x:Key="WFLTimeConverter"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
     <StackLayout x:Name="lMain" Spacing="8">
         <StackLayout x:Name="lInput" Spacing="8" Orientation="Horizontal">
-            <Label Text="{i18n:Translate I_can_run_text}" FontSize="Medium"/>
+            <Label Text="{i18n:Translate I_can_run_text}"/>
             <fe:BindablePicker ItemsSource="{Binding SampleDistances}" SelectedItem="{Binding SelectedDistance}" DisplayProperty="Display"/>
-            <Label Text="{i18n:Translate In_text}" FontSize="Medium"/>
-            <TimePicker Time="{Binding SampleTime}"/>
+            <Label Text="{i18n:Translate In_text}"/>
+            <TimePicker Time="{Binding SampleTime}" Format="HH:mm:ss"/>
             <!--<local:TimeIntervalPicker SelectedTime="{Binding SampleTime}"/>-->
         </StackLayout>
-        <Button Text="{i18n:Translate Calculate_text}" Command="{Binding CalculateVdotCommand}"/>
-        <Label Text="{i18n:Translate My_vdot_is_text}" FontSize="Medium"/>
+        <Button Text="{i18n:Translate Calculate_text}" Command="{Binding CalculateVdotCommand}" IsEnabled="{Binding DataEntered}"/>
+        <Label Text="{i18n:Translate My_vdot_is_text}"/>
         <StackLayout x:Name="lVdot" Spacing="8" Orientation="Horizontal">
-            <Button Command="{Binding DecreaseVdotCommand}" Text="-"/>
-            <Label Text="{Binding Vdot}" FontSize="Medium"/>
-            <Button Command="{Binding IncreaseVdotCommand}" Text="+"/>
+            <Button Text="-" Command="{Binding DecreaseVdotCommand}" IsEnabled="{Binding VdotExists}"/>
+            <Label Text="{Binding Vdot, Converter={StaticResource VdotConverter}}"/>
+            <Button Text="+" Command="{Binding IncreaseVdotCommand}" IsEnabled="{Binding VdotExists}"/>
         </StackLayout>
-        <StackLayout x:Name="lEstimation" Spacing="8" Orientation="Horizontal">
-            <Label Text="{Binding WFLRunEstimationDistance, StringFormat={i18n:Translate I_will_try_to_run_text}}" FontSize="Medium"/>
-        </StackLayout>
+        <Label Text="{Binding WFLRunEstimatedDistance, 
+            StringFormat={i18n:Translate I_will_try_to_run_text},
+            Converter={StaticResource WFLDistanceConverter}}"/>
+        <Label Text="{Binding WFLRunEstimatedTime,
+            Converter={StaticResource WFLTimeConverter}}"/>
+        <Label Text="{Binding WFLRunEstimatedPace,
+            StringFormat={i18n:Translate Pace_text}}"/>
     </StackLayout>
 </ContentPage>
