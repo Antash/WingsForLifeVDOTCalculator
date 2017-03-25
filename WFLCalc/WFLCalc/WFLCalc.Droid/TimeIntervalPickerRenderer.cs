@@ -1,31 +1,43 @@
-using Android.App;
 using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+using Android.App;
+using Android.Content;
+using Android.OS;
+using Android.Runtime;
+using Android.Views;
+using Android.Widget;
 using WFLCalc.Droid;
-using WFLCalc.UI;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.Android;
 
-[assembly: Xamarin.Forms.ExportRenderer(typeof(TimeIntervalPicker), typeof(TimeIntervalPickerRenderer))]
+[assembly: ExportRenderer(typeof(WFLCalc.UI.TimeIntervalPicker), typeof(TimeIntervalPickerRenderer))]
+
 namespace WFLCalc.Droid
 {
-    public class TimeIntervalPickerRenderer : ViewRenderer<TimeIntervalPicker, global::Android.Widget.EditText>, TimePickerDialog.IOnTimeSetListener, IDisposable
+    public class TimeIntervalPickerRenderer : ViewRenderer<WFLCalc.UI.TimeIntervalPicker, global::Android.Widget.EditText>,
+        TimeDurationPickerDialog.IOnTimeSetListener, 
+        IJavaObject, 
+        IDisposable
     {
-        private TimePickerDialog dialog = null;
+        private const string DurationFormat = @"hh\:mm\:ss";
+        private TimeDurationPickerDialog dialog = null;
 
-        protected override void OnElementChanged(ElementChangedEventArgs<TimeIntervalPicker> e)
+        protected override void OnElementChanged(ElementChangedEventArgs<WFLCalc.UI.TimeIntervalPicker> e)
         {
             base.OnElementChanged(e);
             this.SetNativeControl(new global::Android.Widget.EditText(Forms.Context));
             this.Control.Click += Control_Click;
-            this.Control.Text = DateTime.Now.ToString("HH:mm");
+            this.Control.Text = TimeSpan.FromSeconds(0).ToString(DurationFormat);
             this.Control.KeyListener = null;
             this.Control.FocusChange += Control_FocusChange;
         }
 
         void Control_FocusChange(object sender, global::Android.Views.View.FocusChangeEventArgs e)
         {
-            if (e.HasFocus)
-                ShowTimePicker();
+            if (e.HasFocus) { ShowTimePicker(); }
         }
 
         void Control_Click(object sender, EventArgs e)
@@ -37,18 +49,17 @@ namespace WFLCalc.Droid
         {
             if (dialog == null)
             {
-                dialog = new TimePickerDialog(Forms.Context, this, DateTime.Now.Hour, DateTime.Now.Minute, true);
+                dialog = new TimeDurationPickerDialog(Forms.Context, this, 0, 0, 0);
             }
 
             dialog.Show();
         }
 
-        public void OnTimeSet(global::Android.Widget.TimePicker view, int hourOfDay, int minute)
+        public void OnTimeSet(TimeDurationPickerDialog view, int hour, int minute, int second)
         {
-            var time = new TimeSpan(hourOfDay, minute, 0);
-            this.Element.SetValue(TimePicker.TimeProperty, time);
-
-            this.Control.Text = time.ToString(@"hh\:mm");
+            var time = new TimeSpan(hour, minute, second);
+            this.Element.SetValue(WFLCalc.UI.TimeIntervalPicker.SelectedTimeProperty, time);
+            this.Control.Text = time.ToString(DurationFormat);
         }
     }
 }

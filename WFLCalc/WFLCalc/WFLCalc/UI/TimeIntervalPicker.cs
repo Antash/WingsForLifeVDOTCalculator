@@ -1,8 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
+﻿/*
+Based on @yuv4ik code
+https://gist.github.com/yuv4ik/c7137c4ea89ededa99dfee51bfb1de4e
+*/
+
+using System;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Xamarin.Forms;
 
 namespace WFLCalc.UI
@@ -58,7 +60,7 @@ namespace WFLCalc.UI
         {
             var picker = (TimeIntervalPicker)bindable;
 
-            var itemMatch = picker.Items.FirstOrDefault(x => x == newValue.ToString());
+            var itemMatch = picker.Items.FirstOrDefault(x => x == newValue.ToString(@"hh\:mm\:ss"));
             var index = picker.Items.IndexOf(itemMatch);
 
             picker.SelectedIndex = index;

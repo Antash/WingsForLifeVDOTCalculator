@@ -2925,6 +2925,9 @@ namespace WFLCalc.Droid
 			// aapt resource value: 0x7f0c0033
 			public const int homeAsUp = 2131492915;
 			
+			// aapt resource value: 0x7f0c00b0
+			public const int hoursPicker = 2131493040;
+			
 			// aapt resource value: 0x7f0c0049
 			public const int icon = 2131492937;
 			
@@ -2961,8 +2964,8 @@ namespace WFLCalc.Droid
 			// aapt resource value: 0x7f0c0048
 			public const int list_item = 2131492936;
 			
-			// aapt resource value: 0x7f0c00b1
-			public const int masked = 2131493041;
+			// aapt resource value: 0x7f0c00b5
+			public const int masked = 2131493045;
 			
 			// aapt resource value: 0x7f0c009f
 			public const int media_actions = 2131493023;
@@ -2972,6 +2975,9 @@ namespace WFLCalc.Droid
 			
 			// aapt resource value: 0x7f0c0027
 			public const int mini = 2131492903;
+			
+			// aapt resource value: 0x7f0c00b1
+			public const int minutesPicker = 2131493041;
 			
 			// aapt resource value: 0x7f0c008b
 			public const int mr_art = 2131493003;
@@ -3147,6 +3153,9 @@ namespace WFLCalc.Droid
 			// aapt resource value: 0x7f0c0071
 			public const int search_voice_btn = 2131492977;
 			
+			// aapt resource value: 0x7f0c00b2
+			public const int secondsPicker = 2131493042;
+			
 			// aapt resource value: 0x7f0c0072
 			public const int select_dialog_listview = 2131492978;
 			
@@ -3228,6 +3237,9 @@ namespace WFLCalc.Droid
 			// aapt resource value: 0x7f0c00a4
 			public const int time = 2131493028;
 			
+			// aapt resource value: 0x7f0c00b3
+			public const int timeDurationInput = 2131493043;
+			
 			// aapt resource value: 0x7f0c004a
 			public const int title = 2131492938;
 			
@@ -3261,8 +3273,8 @@ namespace WFLCalc.Droid
 			// aapt resource value: 0x7f0c0002
 			public const int view_offset_helper = 2131492866;
 			
-			// aapt resource value: 0x7f0c00b0
-			public const int visible = 2131493040;
+			// aapt resource value: 0x7f0c00b4
+			public const int visible = 2131493044;
 			
 			// aapt resource value: 0x7f0c0091
 			public const int volume_item_container = 2131493009;
@@ -3551,6 +3563,12 @@ namespace WFLCalc.Droid
 			
 			// aapt resource value: 0x7f030041
 			public const int support_simple_spinner_dropdown_item = 2130903105;
+			
+			// aapt resource value: 0x7f030042
+			public const int time_duration_picker = 2130903106;
+			
+			// aapt resource value: 0x7f030043
+			public const int time_duration_picker_dialog = 2130903107;
 			
 			static Layout()
 			{
