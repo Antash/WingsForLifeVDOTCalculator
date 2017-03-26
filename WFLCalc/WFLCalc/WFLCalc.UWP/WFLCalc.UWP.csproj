@@ -127,7 +127,7 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\WFLCalc\WFLCalc\WFLCalc.csproj">
+    <ProjectReference Include="..\WFLCalc\WFLCalc.csproj">
       <Project>{df027f8e-fc21-4407-9979-61cdbdfb5a5e}</Project>
       <Name>WFLCalc</Name>
     </ProjectReference>

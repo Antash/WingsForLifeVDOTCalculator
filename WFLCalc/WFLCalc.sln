@@ -13,7 +13,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WFLCalc", "WFLCalc\WFLCalc\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalculationTest", "CalculationTest\CalculationTest.csproj", "{9D70ACCA-FCC3-46F6-B1FD-29BF1635A3EB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WFLCalc.UWP", "WFLCalc.UWP\WFLCalc.UWP.csproj", "{CB0C92DF-6A29-48DC-AAE0-18B1D507596D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WFLCalc.UWP", "WFLCalc\WFLCalc.UWP\WFLCalc.UWP.csproj", "{CB0C92DF-6A29-48DC-AAE0-18B1D507596D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
