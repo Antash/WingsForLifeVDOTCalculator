@@ -18,21 +18,37 @@ using Xamarin.Forms.Platform.Android;
 namespace WFLCalc.Droid
 {
     public class TimeIntervalPickerRenderer : ViewRenderer<WFLCalc.UI.TimeIntervalPicker, global::Android.Widget.EditText>,
-        TimeDurationPickerDialog.IOnTimeSetListener, 
+        TimeDurationPickerDialog.IOnDurationSetListener, 
         IJavaObject, 
         IDisposable
     {
         private const string DurationFormat = @"hh\:mm\:ss";
-        private TimeDurationPickerDialog dialog = null;
+        private TimeDurationPickerDialog dialog;
+        private WFLCalc.UI.TimeIntervalPicker timeIntervalPicker;
 
         protected override void OnElementChanged(ElementChangedEventArgs<WFLCalc.UI.TimeIntervalPicker> e)
         {
             base.OnElementChanged(e);
+            this.timeIntervalPicker = e.NewElement;
             this.SetNativeControl(new global::Android.Widget.EditText(Forms.Context));
             this.Control.Click += Control_Click;
             this.Control.Text = TimeSpan.FromSeconds(0).ToString(DurationFormat);
             this.Control.KeyListener = null;
             this.Control.FocusChange += Control_FocusChange;
+        }
+
+        protected override void OnElementPropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
+        {
+            base.OnElementPropertyChanged(sender, e);
+
+            if (Control == null)
+                return;
+
+            if (e.PropertyName == Picker.SelectedIndexProperty.PropertyName)
+            {
+                dialog.SetDuration(timeIntervalPicker.SelectedTime);
+                OnDurationSet(timeIntervalPicker.SelectedTime);
+            }
         }
 
         void Control_FocusChange(object sender, global::Android.Views.View.FocusChangeEventArgs e)
@@ -49,17 +65,16 @@ namespace WFLCalc.Droid
         {
             if (dialog == null)
             {
-                dialog = new TimeDurationPickerDialog(Forms.Context, this, 0, 0, 0);
+                dialog = new TimeDurationPickerDialog(Forms.Context, this, TimeSpan.FromSeconds(0));
             }
 
             dialog.Show();
         }
 
-        public void OnTimeSet(TimeDurationPickerDialog view, int hour, int minute, int second)
+        public void OnDurationSet(TimeSpan duration)
         {
-            var time = new TimeSpan(hour, minute, second);
-            this.Element.SetValue(WFLCalc.UI.TimeIntervalPicker.SelectedTimeProperty, time);
-            this.Control.Text = time.ToString(DurationFormat);
+            this.Element.SetValue(WFLCalc.UI.TimeIntervalPicker.SelectedTimeProperty, duration);
+            this.Control.Text = duration.ToString(DurationFormat);
         }
     }
 }
