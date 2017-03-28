@@ -26,6 +26,11 @@ namespace WFLCalc
             MainPage = new UI.CalculatorPage();
         }
 
+        public static Page GetMainPage()
+        {
+            return new NavigationPage(new UI.CalculatorPage());
+        }
+
         protected override void OnStart()
         {
             // Handle when your app starts
