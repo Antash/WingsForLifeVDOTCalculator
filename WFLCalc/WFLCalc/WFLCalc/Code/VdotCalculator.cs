@@ -39,7 +39,7 @@ namespace WFLCalc
                 n++;                        //times through loop
             }
             while (n < 10 && e > .1);                   //test for convergence
-            return TimeSpan.FromMinutes(t);
+            return TimeSpan.FromMinutes(t).StripMilliseconds();
         }
 
         public double GetVdot()

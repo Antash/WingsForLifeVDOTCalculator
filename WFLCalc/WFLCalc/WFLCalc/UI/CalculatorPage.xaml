@@ -13,12 +13,19 @@
         </ResourceDictionary>
     </ContentPage.Resources>
     <StackLayout x:Name="lMain" Spacing="8" Padding="10, 100, 10, 10">
-        <StackLayout x:Name="lInput" Spacing="8" Orientation="Horizontal">
-            <Label Text="{i18n:Translate I_can_run_text}"/>
-            <fe:BindablePicker ItemsSource="{Binding SampleDistances}" SelectedItem="{Binding SelectedDistance}" DisplayProperty="Display"/>
-            <Label Text="{i18n:Translate In_text}"/>
-            <local:TimeIntervalPicker SelectedTime="{Binding SampleTime}"/>
-        </StackLayout>
+        <Grid x:Name="LayoutRoot">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="80"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="20"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+
+            <Label Grid.Column="0" Text="{i18n:Translate I_can_run_text}"/>
+            <fe:BindablePicker Grid.Column="1" ItemsSource="{Binding SampleDistances}" SelectedItem="{Binding SelectedDistance}" DisplayProperty="Display"/>
+            <Label Grid.Column="2" Text="{i18n:Translate In_text}"/>
+            <local:TimeIntervalPicker Grid.Column="3" SelectedTime="{Binding SampleTime}"/>
+        </Grid>
         <Button Text="{i18n:Translate Calculate_text}" Command="{Binding CalculateVdotCommand}" IsEnabled="{Binding DataEntered}"/>
         <Label Text="{i18n:Translate My_vdot_is_text}"/>
         <StackLayout x:Name="lVdot" Spacing="8" Orientation="Horizontal">
