@@ -15,16 +15,17 @@
     <StackLayout x:Name="lMain" Spacing="8" Padding="10, 100, 10, 10">
         <Grid x:Name="LayoutRoot">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="80"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="20"/>
                 <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-
-            <Label Grid.Column="0" Text="{i18n:Translate I_can_run_text}"/>
-            <fe:BindablePicker Grid.Column="1" ItemsSource="{Binding SampleDistances}" SelectedItem="{Binding SelectedDistance}" DisplayProperty="Display"/>
-            <Label Grid.Column="2" Text="{i18n:Translate In_text}"/>
-            <local:TimeIntervalPicker Grid.Column="3" SelectedTime="{Binding SampleTime}"/>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Label Grid.Column="0" Grid.Row="0" Text="{i18n:Translate I_can_run_text}"/>
+            <fe:BindablePicker Grid.Column="1" Grid.Row="0" ItemsSource="{Binding SampleDistances}" SelectedItem="{Binding SelectedDistance}" DisplayProperty="Display"/>
+            <Label Grid.Column="0" Grid.Row="1" Text="{i18n:Translate In_text}"/>
+            <local:TimeIntervalPicker Grid.Column="1" Grid.Row="1" SelectedTime="{Binding SampleTime}"/>
         </Grid>
         <Button Text="{i18n:Translate Calculate_text}" Command="{Binding CalculateVdotCommand}" IsEnabled="{Binding DataEntered}"/>
         <Label Text="{i18n:Translate My_vdot_is_text}"/>
