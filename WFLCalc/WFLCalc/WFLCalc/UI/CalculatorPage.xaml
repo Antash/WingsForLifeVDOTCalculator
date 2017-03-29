@@ -13,6 +13,7 @@
         </ResourceDictionary>
     </ContentPage.Resources>
     <StackLayout x:Name="lMain" Spacing="8" Padding="10, 50, 10, 10">
+        <Label Text="{i18n:Translate Enter_your_best_text}" FontSize="Medium" HorizontalOptions="Center"/>
         <Grid x:Name="LayoutRoot">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>

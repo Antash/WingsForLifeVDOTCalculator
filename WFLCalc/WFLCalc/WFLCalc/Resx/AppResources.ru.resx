@@ -150,4 +150,7 @@
   <data name="Time_on_distance_text" xml:space="preserve">
     <value>Время на дистанции: {0}</value>
   </data>
+  <data name="Enter_your_best_text" xml:space="preserve">
+    <value>Введите свой лучший результат!</value>
+  </data>
 </root>

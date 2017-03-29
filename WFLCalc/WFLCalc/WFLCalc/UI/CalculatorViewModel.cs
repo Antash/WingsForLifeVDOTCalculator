@@ -93,7 +93,7 @@ namespace WFLCalc.UI
                 new DistanceSample(42195, Resx.AppResources.Marathon_text),
                 new DistanceSample(100000, "100K"),
             };
-            SelectedDistance = SampleDistances[2];
+            SelectedDistance = SampleDistances[1];
             IncreaseVdotCommand = new Command(() => ChangeVdot(1));
             DecreaseVdotCommand = new Command(() => ChangeVdot(-1));
             CalculateVdotCommand = new Command(CalculateVdot);

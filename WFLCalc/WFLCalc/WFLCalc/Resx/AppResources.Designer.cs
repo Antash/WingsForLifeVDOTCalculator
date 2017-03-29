@@ -89,6 +89,15 @@ namespace WFLCalc.Resx {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Enter your best result!.
+        /// </summary>
+        internal static string Enter_your_best_text {
+            get {
+                return ResourceManager.GetString("Enter_your_best_text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Half Marathon.
         /// </summary>
         internal static string HMarathon_text {
