@@ -2714,17 +2714,20 @@ namespace WFLCalc.Droid
 			// aapt resource value: 0x7f020105
 			public const int notification_icon_background = 2130837765;
 			
-			// aapt resource value: 0x7f020108
-			public const int notification_template_icon_bg = 2130837768;
-			
 			// aapt resource value: 0x7f020109
-			public const int notification_template_icon_low_bg = 2130837769;
+			public const int notification_template_icon_bg = 2130837769;
+			
+			// aapt resource value: 0x7f02010a
+			public const int notification_template_icon_low_bg = 2130837770;
 			
 			// aapt resource value: 0x7f020106
 			public const int notification_tile_bg = 2130837766;
 			
 			// aapt resource value: 0x7f020107
 			public const int notify_panel_notification_icon_bg = 2130837767;
+			
+			// aapt resource value: 0x7f020108
+			public const int splashscreen = 2130837768;
 			
 			static Drawable()
 			{
@@ -3676,17 +3679,14 @@ namespace WFLCalc.Droid
 			// aapt resource value: 0x7f07002e
 			public const int abc_toolbar_collapse_description = 2131165230;
 			
-			// aapt resource value: 0x7f07003d
-			public const int app_name = 2131165245;
-			
 			// aapt resource value: 0x7f070014
 			public const int appbar_scrolling_view_behavior = 2131165204;
 			
 			// aapt resource value: 0x7f070015
 			public const int bottom_sheet_behavior = 2131165205;
 			
-			// aapt resource value: 0x7f07003f
-			public const int cancel = 2131165247;
+			// aapt resource value: 0x7f07003e
+			public const int cancel = 2131165246;
 			
 			// aapt resource value: 0x7f070016
 			public const int character_counter_pattern = 2131165206;
@@ -3751,8 +3751,8 @@ namespace WFLCalc.Droid
 			// aapt resource value: 0x7f070013
 			public const int mr_user_route_category_name = 2131165203;
 			
-			// aapt resource value: 0x7f07003e
-			public const int ok = 2131165246;
+			// aapt resource value: 0x7f07003d
+			public const int ok = 2131165245;
 			
 			// aapt resource value: 0x7f070017
 			public const int password_toggle_content_description = 2131165207;
@@ -4966,6 +4966,9 @@ namespace WFLCalc.Droid
 			
 			// aapt resource value: 0x7f0a000a
 			public const int Widget_MediaRouter_MediaRouteButton = 2131361802;
+			
+			// aapt resource value: 0x7f0a0189
+			public const int splashscreen = 2131362185;
 			
 			static Style()
 			{

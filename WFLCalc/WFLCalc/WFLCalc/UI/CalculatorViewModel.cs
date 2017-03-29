@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
 
@@ -39,10 +36,6 @@ namespace WFLCalc.UI
             {
                 distance = value;
                 OnPropertyChanged("SelectedDistance");
-                //VdotExists = false;
-                //Vdot = 0;
-                //OnPropertyChanged("Vdot");
-                //OnPropertyChanged("VdotExists");
             }
         }
 
@@ -60,15 +53,12 @@ namespace WFLCalc.UI
                     OnPropertyChanged("SampleTime");
                     DataEntered = true;
                     OnPropertyChanged("DataEntered");
-                    //VdotExists = false;
-                    //Vdot = 0;
-                    //OnPropertyChanged("VdotExists");
-                    //OnPropertyChanged("Vdot");
                 }
             }
         }
 
         public bool DataEntered { get; set; }
+        public bool Initialized { get; set; }
         public bool VdotCanInc
         {
             get { return Vdot < VdotCalculator.MaxVdot && Vdot > 0; }
@@ -94,7 +84,7 @@ namespace WFLCalc.UI
         {
             SampleDistances = new List<DistanceSample>
             {
-                new DistanceSample(3000, "3K"),
+                //new DistanceSample(3000, "3K"),
                 new DistanceSample(5000, "5K"),
                 new DistanceSample(10000, "10K"),
                 new DistanceSample(15000, "15K"),
@@ -116,10 +106,12 @@ namespace WFLCalc.UI
             WFLRunEstimatedDistance = vDotCalculator.GetWingsForLifeEstimatedResult();
             WFLRunEstimatedTime = vDotCalculator.GetTime(WFLRunEstimatedDistance);
             WFLRunEstimatedPace = RunningUtils.GetPace(WFLRunEstimatedDistance, WFLRunEstimatedTime);
+            Initialized = true;
             OnPropertyChanged("Vdot");
             OnPropertyChanged("WFLRunEstimatedDistance");
             OnPropertyChanged("WFLRunEstimatedTime");
             OnPropertyChanged("WFLRunEstimatedPace");
+            OnPropertyChanged("Initialized");
             OnPropertyChanged("VdotCanDec");
             OnPropertyChanged("VdotCanInc");
         }

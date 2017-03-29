@@ -22,24 +22,34 @@
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
-            <Label Grid.Column="0" Grid.Row="0" Text="{i18n:Translate I_can_run_text}" FontSize = "Medium"/>
+            <Label Grid.Column="0" Grid.Row="0" Text="{i18n:Translate I_can_run_text}" FontSize="Medium" HorizontalTextAlignment="End" VerticalOptions="Center"/>
             <fe:BindablePicker Grid.Column="1" Grid.Row="0" ItemsSource="{Binding SampleDistances}" SelectedItem="{Binding SelectedDistance}" DisplayProperty="Display"/>
-            <Label Grid.Column="0" Grid.Row="1" Text="{i18n:Translate In_text}" FontSize = "Medium"/>
+            <Label Grid.Column="0" Grid.Row="1" Text="{i18n:Translate In_text}" FontSize="Medium" HorizontalTextAlignment="End" VerticalOptions="Center"/>
             <local:TimeIntervalPicker Grid.Column="1" Grid.Row="1" SelectedTime="{Binding SampleTime}"/>
         </Grid>
-        <Button Text="{i18n:Translate Calculate_text}" Command="{Binding CalculateVdotCommand}" IsEnabled="{Binding DataEntered}" FontSize = "Medium"/>
-        <Label Text="{i18n:Translate My_vdot_is_text}" FontSize = "Medium"/>
-        <StackLayout x:Name="lVdot" Spacing="8" Orientation="Horizontal">
-            <Button Text="-" Command="{Binding DecreaseVdotCommand}" IsEnabled="{Binding VdotCanDec}" FontSize = "Medium"/>
-            <Label Text="{Binding Vdot, Converter={StaticResource VdotConverter}}" FontSize = "Large"/>
-            <Button Text="+" Command="{Binding IncreaseVdotCommand}" IsEnabled="{Binding VdotCanInc}" FontSize = "Medium"/>
+        <Button Text="{i18n:Translate Calculate_text}" Command="{Binding CalculateVdotCommand}" IsEnabled="{Binding DataEntered}" FontSize="Medium"/>
+        <StackLayout x:Name="lEstimation" Spacing="8" IsVisible="{Binding Initialized}">
+            <Label Text="{i18n:Translate My_vdot_is_text}" FontSize="Medium" HorizontalOptions="Center"/>
+            <StackLayout x:Name="lVdot" Spacing="8" Orientation="Horizontal" HorizontalOptions="Center">
+                <Button Text="-" Command="{Binding DecreaseVdotCommand}" IsEnabled="{Binding VdotCanDec}" FontSize="Medium"/>
+                <Label Text="{Binding Vdot, Converter={StaticResource VdotConverter}}"
+                       FontSize="Large"
+                       HorizontalTextAlignment="Center"
+                       VerticalOptions="Center"/>
+                <Button Text="+" Command="{Binding IncreaseVdotCommand}" IsEnabled="{Binding VdotCanInc}" FontSize="Medium"/>
+            </StackLayout>
+            <Label Text="{Binding WFLRunEstimatedDistance, StringFormat={i18n:Translate I_will_try_to_run_text}, Converter={StaticResource WFLDistanceConverter}}"
+                   FontSize="Medium"
+                   HorizontalTextAlignment="Center"
+                   HorizontalOptions="Center"/>
+            <Label Text="{Binding WFLRunEstimatedTime, Converter={StaticResource WFLTimeConverter}}"
+                   FontSize="Medium"
+                   HorizontalTextAlignment="Center"
+                   HorizontalOptions="Center"/>
+            <Label Text="{Binding WFLRunEstimatedPace, StringFormat={i18n:Translate Pace_text}}"
+                   FontSize="Medium"
+                   HorizontalTextAlignment="Center"
+                   HorizontalOptions="Center"/>
         </StackLayout>
-        <Label Text="{Binding WFLRunEstimatedDistance, 
-            StringFormat={i18n:Translate I_will_try_to_run_text},
-            Converter={StaticResource WFLDistanceConverter}}" FontSize = "Medium"/>
-        <Label Text="{Binding WFLRunEstimatedTime,
-            Converter={StaticResource WFLTimeConverter}}" FontSize = "Medium"/>
-        <Label Text="{Binding WFLRunEstimatedPace,
-            StringFormat={i18n:Translate Pace_text}}" FontSize = "Medium"/>
     </StackLayout>
 </ContentPage>
