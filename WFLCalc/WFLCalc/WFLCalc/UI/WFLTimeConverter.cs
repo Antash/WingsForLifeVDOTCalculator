@@ -16,11 +16,10 @@ namespace WFLCalc.UI
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
             time = (TimeSpan)value;
-            return time.Hours == 0 
-                ? string.Format(AppResources.Time_on_distance_m_text, time)
-                : string.Format(AppResources.Time_on_distance_hm_text, time, 
-                time.Hours > 1 ? AppResources.Hours_text : AppResources.Hour_text,
-                time.Minutes > 1 ? AppResources.Minutes_text : AppResources.Minute_text);
+            return string.Format(AppResources.Time_on_distance_text,
+                time.Hours == 0 
+                ? string.Format(AppResources.Duration_m_text, time)
+                : string.Format(AppResources.Duration_hm_text, time)); 
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)

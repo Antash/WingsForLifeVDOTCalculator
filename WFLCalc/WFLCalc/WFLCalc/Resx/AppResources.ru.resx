@@ -117,7 +117,37 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Calculate_text" xml:space="preserve">
+    <value>Рассчитать</value>
+  </data>
+  <data name="Duration_hm_text" xml:space="preserve">
+    <value>{0:%h} ч. {0:%m} мин.</value>
+  </data>
+  <data name="Duration_m_text" xml:space="preserve">
+    <value>{0:%m} мин.</value>
+  </data>
+  <data name="HMarathon_text" xml:space="preserve">
+    <value>Полумарафон</value>
+  </data>
+  <data name="In_text" xml:space="preserve">
+    <value>за</value>
+  </data>
   <data name="I_can_run_text" xml:space="preserve">
     <value>Я могу пробежать</value>
+  </data>
+  <data name="I_will_try_to_run_text" xml:space="preserve">
+    <value>Я попробую пробежать {0} км. до того момента как финиш обгонит меня.</value>
+  </data>
+  <data name="Marathon_text" xml:space="preserve">
+    <value>Марафон</value>
+  </data>
+  <data name="My_vdot_is_text" xml:space="preserve">
+    <value>Мой показатель VDOT равен</value>
+  </data>
+  <data name="Pace_text" xml:space="preserve">
+    <value>Темп: {0:m\:ss} мин/км.</value>
+  </data>
+  <data name="Time_on_distance_text" xml:space="preserve">
+    <value>Время на дистанции: {0}</value>
   </data>
 </root>

@@ -69,7 +69,14 @@ namespace WFLCalc.UI
         }
 
         public bool DataEntered { get; set; }
-        public bool VdotExists { get; set; }
+        public bool VdotCanInc
+        {
+            get { return Vdot < VdotCalculator.MaxVdot && Vdot > 0; }
+        }
+        public bool VdotCanDec
+        {
+            get { return Vdot > VdotCalculator.MinVdot; }
+        }
         public double Vdot { get; set; }
         public int WFLRunEstimatedDistance { get; set; }
         public TimeSpan WFLRunEstimatedTime { get; set; }
@@ -104,7 +111,6 @@ namespace WFLCalc.UI
 
         private void CalculateVdot(object obj)
         {
-            VdotExists = true;
             vDotCalculator = new VdotCalculator(distance.Meters, time);
             Vdot = vDotCalculator.GetVdot();
             WFLRunEstimatedDistance = vDotCalculator.GetWingsForLifeEstimatedResult();
@@ -114,7 +120,8 @@ namespace WFLCalc.UI
             OnPropertyChanged("WFLRunEstimatedDistance");
             OnPropertyChanged("WFLRunEstimatedTime");
             OnPropertyChanged("WFLRunEstimatedPace");
-            OnPropertyChanged("VdotExists");
+            OnPropertyChanged("VdotCanDec");
+            OnPropertyChanged("VdotCanInc");
         }
 
         private void ChangeVdot(double value)
@@ -134,6 +141,8 @@ namespace WFLCalc.UI
             OnPropertyChanged("WFLRunEstimatedDistance");
             OnPropertyChanged("WFLRunEstimatedTime");
             OnPropertyChanged("WFLRunEstimatedPace");
+            OnPropertyChanged("VdotCanDec");
+            OnPropertyChanged("VdotCanInc");
         }
 
         protected virtual void OnPropertyChanged(string propertyName)

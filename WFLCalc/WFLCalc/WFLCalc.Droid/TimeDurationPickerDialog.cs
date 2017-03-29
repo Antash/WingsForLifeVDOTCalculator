@@ -9,6 +9,7 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
+using Android.Content;
 
 namespace WFLCalc.Droid
 {
@@ -37,8 +38,8 @@ namespace WFLCalc.Droid
 
             SetView(view);
             SetCancelable(true);
-            SetButton((int)DialogButtonType.Positive, "Ok", this);
-            SetButton((int)DialogButtonType.Negative, "Cancel", this);
+            SetButton((int)DialogButtonType.Positive, context.Resources.GetString(Resource.String.ok), this);
+            SetButton((int)DialogButtonType.Negative, context.Resources.GetString(Resource.String.cancel), this);
         }
 
         public void OnClick(IDialogInterface dialog, int which)

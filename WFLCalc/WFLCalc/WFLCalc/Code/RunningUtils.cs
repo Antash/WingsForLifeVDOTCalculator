@@ -13,5 +13,10 @@ namespace WFLCalc
         {
             return new TimeSpan(time.Days, time.Hours, time.Minutes, time.Seconds);
         }
+
+        public static bool HasValue(this double value)
+        {
+            return !Double.IsNaN(value) && !Double.IsInfinity(value);
+        }
     }
 }

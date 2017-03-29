@@ -3676,11 +3676,17 @@ namespace WFLCalc.Droid
 			// aapt resource value: 0x7f07002e
 			public const int abc_toolbar_collapse_description = 2131165230;
 			
+			// aapt resource value: 0x7f07003d
+			public const int app_name = 2131165245;
+			
 			// aapt resource value: 0x7f070014
 			public const int appbar_scrolling_view_behavior = 2131165204;
 			
 			// aapt resource value: 0x7f070015
 			public const int bottom_sheet_behavior = 2131165205;
+			
+			// aapt resource value: 0x7f07003f
+			public const int cancel = 2131165247;
 			
 			// aapt resource value: 0x7f070016
 			public const int character_counter_pattern = 2131165206;
@@ -3744,6 +3750,9 @@ namespace WFLCalc.Droid
 			
 			// aapt resource value: 0x7f070013
 			public const int mr_user_route_category_name = 2131165203;
+			
+			// aapt resource value: 0x7f07003e
+			public const int ok = 2131165246;
 			
 			// aapt resource value: 0x7f070017
 			public const int password_toggle_content_description = 2131165207;
