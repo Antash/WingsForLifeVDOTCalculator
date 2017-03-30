@@ -9,12 +9,14 @@ using Xamarin.Forms.Xaml;
 
 namespace WFLCalc.UI
 {
+
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class CalculatorPage : ContentPage
+    public partial class HomePage : TabbedPage
     {
-        public CalculatorPage()
+        public HomePage()
         {
             InitializeComponent();
+            BindingContext = new CalculatorViewModel();
         }
     }
 }

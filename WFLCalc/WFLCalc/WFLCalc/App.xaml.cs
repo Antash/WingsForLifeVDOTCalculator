@@ -22,8 +22,8 @@ namespace WFLCalc
                 Resx.AppResources.Culture = ci; // set the RESX for resource localization
                 DependencyService.Get<ILocalize>().SetLocale(ci); // set the Thread for locale-aware methods
             }
-            
-            MainPage = new UI.CalculatorPage();
+
+            MainPage = new UI.HomePage();
         }
 
         public static Page GetMainPage()

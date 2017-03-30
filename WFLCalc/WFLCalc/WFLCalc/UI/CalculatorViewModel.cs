@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Windows.Input;
+using WFLCalc.Resx;
 using Xamarin.Forms;
 
 namespace WFLCalc.UI
@@ -74,29 +75,33 @@ namespace WFLCalc.UI
 
         public event PropertyChangedEventHandler PropertyChanged;
 
-        public ICommand IncreaseVdotCommand { protected set; get; }
+        public ICommand IncreaseVdotCommand { get; protected set; }
 
-        public ICommand DecreaseVdotCommand { protected set; get; }
+        public ICommand DecreaseVdotCommand { get; protected set; }
 
-        public ICommand CalculateVdotCommand { protected set; get; }
+        public ICommand CalculateVdotCommand { get; protected set; }
+
+        public ICommand OpenVdotInfoCommand { get; protected set; }
+
+        public ICommand OpenWflInfoCommand { get; protected set; }
 
         public CalculatorViewModel()
         {
             SampleDistances = new List<DistanceSample>
             {
-                //new DistanceSample(3000, "3K"),
                 new DistanceSample(5000, "5K"),
                 new DistanceSample(10000, "10K"),
                 new DistanceSample(15000, "15K"),
                 new DistanceSample(21100, Resx.AppResources.HMarathon_text),
                 new DistanceSample(30000, "30K"),
                 new DistanceSample(42195, Resx.AppResources.Marathon_text),
-                new DistanceSample(100000, "100K"),
             };
             SelectedDistance = SampleDistances[1];
             IncreaseVdotCommand = new Command(() => ChangeVdot(1));
             DecreaseVdotCommand = new Command(() => ChangeVdot(-1));
             CalculateVdotCommand = new Command(CalculateVdot);
+            OpenVdotInfoCommand = new Command(() => { Device.OpenUri(new Uri(AppResources.Vdot_url)); });
+            OpenWflInfoCommand = new Command(() => { Device.OpenUri(new Uri(AppResources.Wfl_url)); });
         }
 
         private void CalculateVdot(object obj)
@@ -104,7 +109,7 @@ namespace WFLCalc.UI
             vDotCalculator = new VdotCalculator(distance.Meters, time);
             Vdot = vDotCalculator.GetVdot();
             WFLRunEstimatedDistance = vDotCalculator.GetWingsForLifeEstimatedResult();
-            WFLRunEstimatedTime = vDotCalculator.GetTime(WFLRunEstimatedDistance);
+            WFLRunEstimatedTime = WingsForLifeModel.GetTime(WFLRunEstimatedDistance);
             WFLRunEstimatedPace = RunningUtils.GetPace(WFLRunEstimatedDistance, WFLRunEstimatedTime);
             Initialized = true;
             OnPropertyChanged("Vdot");
@@ -126,7 +131,7 @@ namespace WFLCalc.UI
 
             Vdot = vDotCalculator.GetVdot();
             WFLRunEstimatedDistance = vDotCalculator.GetWingsForLifeEstimatedResult();
-            WFLRunEstimatedTime = vDotCalculator.GetTime(WFLRunEstimatedDistance);
+            WFLRunEstimatedTime = WingsForLifeModel.GetTime(WFLRunEstimatedDistance);
             WFLRunEstimatedPace = RunningUtils.GetPace(WFLRunEstimatedDistance, WFLRunEstimatedTime);
             SampleTime = vDotCalculator.GetTime(distance.Meters);
             OnPropertyChanged("Vdot");

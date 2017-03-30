@@ -150,7 +150,35 @@
   <data name="Time_on_distance_text" xml:space="preserve">
     <value>Время на дистанции: {0}</value>
   </data>
+  <data name="Calculator_title_text" xml:space="preserve">
+    <value>Калькулятор</value>
+  </data>
   <data name="Enter_your_best_text" xml:space="preserve">
     <value>Введите свой лучший результат!</value>
+  </data>
+  <data name="Info_title_text" xml:space="preserve">
+    <value>О программе</value>
+  </data>
+  <data name="Read_more_text" xml:space="preserve">
+    <value>Подробнее.</value>
+  </data>
+  <data name="Select_units_text" xml:space="preserve">
+    <value>Единицы измерения</value>
+  </data>
+  <data name="Settings_title_text" xml:space="preserve">
+    <value>Настройки</value>
+  </data>
+  <data name="Vdot_url" xml:space="preserve">
+    <value>https://en.wikipedia.org/wiki/Jack_Daniels_(coach)#VDOT</value>
+  </data>
+  <data name="Wfl_url" xml:space="preserve">
+    <value>http://www.wingsforlifeworldrun.com/ru/ru/o-zabege/o-zabege/</value>
+  </data>
+  <data name="What_is_vdot_text" xml:space="preserve">
+    <value>VDOT - это показатель беговой формы, разработанный американским ученым и тренером Джеком Дэниелсом. Он позволяет на основе результатов вашего последнего старта рассчитать тренировочные темпы, а так же предсказать результаты на других дистанциях.
+Не смотря на то что VDOT неточен для ультрамарафонских дистанций, мы придумали корректирующую формулу, чтобы достаточно быстрые бегуны, готовые пробежать больше чем 42 км. 195 м., получили адекватный прогноз.</value>
+  </data>
+  <data name="What_is_wfl_text" xml:space="preserve">
+    <value>Wings For Life World Run - это уникальный благотворительный пробег: финиш преследует бегунов, задача которых пробежать как можно больше.</value>
   </data>
 </root>

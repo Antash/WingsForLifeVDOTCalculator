@@ -4,7 +4,8 @@
              xmlns:i18n="clr-namespace:WFLCalc;assembly=WFLCalc"
              xmlns:local="clr-namespace:WFLCalc.UI;assembly=WFLCalc"
              xmlns:fe="clr-namespace:FreshEssentials;assembly=FreshEssentials"
-             x:Class="WFLCalc.UI.CalculatorPage">
+             x:Class="WFLCalc.UI.CalculatorPage"
+             Title="{i18n:Translate Calculator_title_text}">
     <ContentPage.Resources>
         <ResourceDictionary>
             <local:WFLDistanceConverter x:Key="WFLDistanceConverter"/>
@@ -12,45 +13,47 @@
             <local:WFLTimeConverter x:Key="WFLTimeConverter"/>
         </ResourceDictionary>
     </ContentPage.Resources>
-    <StackLayout x:Name="lMain" Spacing="8" Padding="10, 50, 10, 10">
-        <Label Text="{i18n:Translate Enter_your_best_text}" FontSize="Medium" HorizontalOptions="Center"/>
-        <Grid x:Name="LayoutRoot">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto"/>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="*"/>
-            </Grid.RowDefinitions>
-            <Label Grid.Column="0" Grid.Row="0" Text="{i18n:Translate I_can_run_text}" FontSize="Medium" HorizontalTextAlignment="End" VerticalOptions="Center"/>
-            <fe:BindablePicker Grid.Column="1" Grid.Row="0" ItemsSource="{Binding SampleDistances}" SelectedItem="{Binding SelectedDistance}" DisplayProperty="Display"/>
-            <Label Grid.Column="0" Grid.Row="1" Text="{i18n:Translate In_text}" FontSize="Medium" HorizontalTextAlignment="End" VerticalOptions="Center"/>
-            <local:TimeIntervalPicker Grid.Column="1" Grid.Row="1" SelectedTime="{Binding SampleTime}"/>
-        </Grid>
-        <Button Text="{i18n:Translate Calculate_text}" Command="{Binding CalculateVdotCommand}" IsEnabled="{Binding DataEntered}" FontSize="Medium"/>
-        <StackLayout x:Name="lEstimation" Spacing="8" IsVisible="{Binding Initialized}">
-            <Label Text="{i18n:Translate My_vdot_is_text}" FontSize="Medium" HorizontalOptions="Center"/>
-            <StackLayout x:Name="lVdot" Spacing="8" Orientation="Horizontal" HorizontalOptions="Center">
-                <Button Text="-" Command="{Binding DecreaseVdotCommand}" IsEnabled="{Binding VdotCanDec}" FontSize="Medium"/>
-                <Label Text="{Binding Vdot, Converter={StaticResource VdotConverter}}"
+    <ScrollView>
+        <StackLayout x:Name="lMain" Spacing="8" Padding="10">
+            <Label Text="{i18n:Translate Enter_your_best_text}" FontSize="Medium" HorizontalOptions="Center"/>
+            <Grid x:Name="LayoutRoot">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Label Grid.Column="0" Grid.Row="0" Text="{i18n:Translate I_can_run_text}" FontSize="Medium" HorizontalTextAlignment="End" VerticalOptions="Center"/>
+                <fe:BindablePicker Grid.Column="1" Grid.Row="0" ItemsSource="{Binding SampleDistances}" SelectedItem="{Binding SelectedDistance}" DisplayProperty="Display"/>
+                <Label Grid.Column="0" Grid.Row="1" Text="{i18n:Translate In_text}" FontSize="Medium" HorizontalTextAlignment="End" VerticalOptions="Center"/>
+                <local:TimeIntervalPicker Grid.Column="1" Grid.Row="1" SelectedTime="{Binding SampleTime}"/>
+            </Grid>
+            <Button Text="{i18n:Translate Calculate_text}" Command="{Binding CalculateVdotCommand}" IsEnabled="{Binding DataEntered}" FontSize="Medium"/>
+            <StackLayout x:Name="lEstimation" Spacing="8" IsVisible="{Binding Initialized}">
+                <Label Text="{i18n:Translate My_vdot_is_text}" FontSize="Medium" HorizontalOptions="Center"/>
+                <StackLayout x:Name="lVdot" Spacing="8" Orientation="Horizontal" HorizontalOptions="Center">
+                    <Button Text="-" Command="{Binding DecreaseVdotCommand}" IsEnabled="{Binding VdotCanDec}" FontSize="Medium"/>
+                    <Label Text="{Binding Vdot, Converter={StaticResource VdotConverter}}"
                        FontSize="Large"
                        HorizontalTextAlignment="Center"
                        VerticalOptions="Center"/>
-                <Button Text="+" Command="{Binding IncreaseVdotCommand}" IsEnabled="{Binding VdotCanInc}" FontSize="Medium"/>
+                    <Button Text="+" Command="{Binding IncreaseVdotCommand}" IsEnabled="{Binding VdotCanInc}" FontSize="Medium"/>
+                </StackLayout>
+                <Label Text="{Binding WFLRunEstimatedDistance, StringFormat={i18n:Translate I_will_try_to_run_text}, Converter={StaticResource WFLDistanceConverter}}"
+                   FontSize="Medium"
+                   HorizontalTextAlignment="Center"
+                   HorizontalOptions="Center"/>
+                <Label Text="{Binding WFLRunEstimatedTime, Converter={StaticResource WFLTimeConverter}}"
+                   FontSize="Medium"
+                   HorizontalTextAlignment="Center"
+                   HorizontalOptions="Center"/>
+                <Label Text="{Binding WFLRunEstimatedPace, StringFormat={i18n:Translate Pace_text}}"
+                   FontSize="Medium"
+                   HorizontalTextAlignment="Center"
+                   HorizontalOptions="Center"/>
             </StackLayout>
-            <Label Text="{Binding WFLRunEstimatedDistance, StringFormat={i18n:Translate I_will_try_to_run_text}, Converter={StaticResource WFLDistanceConverter}}"
-                   FontSize="Medium"
-                   HorizontalTextAlignment="Center"
-                   HorizontalOptions="Center"/>
-            <Label Text="{Binding WFLRunEstimatedTime, Converter={StaticResource WFLTimeConverter}}"
-                   FontSize="Medium"
-                   HorizontalTextAlignment="Center"
-                   HorizontalOptions="Center"/>
-            <Label Text="{Binding WFLRunEstimatedPace, StringFormat={i18n:Translate Pace_text}}"
-                   FontSize="Medium"
-                   HorizontalTextAlignment="Center"
-                   HorizontalOptions="Center"/>
         </StackLayout>
-    </StackLayout>
+    </ScrollView>
 </ContentPage>

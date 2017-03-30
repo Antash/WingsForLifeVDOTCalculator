@@ -71,6 +71,15 @@ namespace WFLCalc.Resx {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Calculator.
+        /// </summary>
+        internal static string Calculator_title_text {
+            get {
+                return ResourceManager.GetString("Calculator_title_text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to {0:%h} h. {0:%m} min..
         /// </summary>
         internal static string Duration_hm_text {
@@ -134,6 +143,15 @@ namespace WFLCalc.Resx {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to About.
+        /// </summary>
+        internal static string Info_title_text {
+            get {
+                return ResourceManager.GetString("Info_title_text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Marathon.
         /// </summary>
         internal static string Marathon_text {
@@ -161,11 +179,75 @@ namespace WFLCalc.Resx {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Read more..
+        /// </summary>
+        internal static string Read_more_text {
+            get {
+                return ResourceManager.GetString("Read_more_text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Units.
+        /// </summary>
+        internal static string Select_units_text {
+            get {
+                return ResourceManager.GetString("Select_units_text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Settings.
+        /// </summary>
+        internal static string Settings_title_text {
+            get {
+                return ResourceManager.GetString("Settings_title_text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Estimated time on distance: {0}.
         /// </summary>
         internal static string Time_on_distance_text {
             get {
                 return ResourceManager.GetString("Time_on_distance_text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to http://sportwiki.to/Беговая_форма_(VDOT).
+        /// </summary>
+        internal static string Vdot_url {
+            get {
+                return ResourceManager.GetString("Vdot_url", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to http://www.wingsforlifeworldrun.com/en/about/about/.
+        /// </summary>
+        internal static string Wfl_url {
+            get {
+                return ResourceManager.GetString("Wfl_url", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to VDOT is runners&apos; performance metric developed by famouse USA scientist and coach Jack Daniels. It is used to determine your training paces as well as to predict performance on other distances based on your results from the last race.
+        ///Unfortunately VDOT doesn&apos;t provide enough accuracy for ultramarathon distances. To overcome this obstacle we have developed a correction algorithm so that even those runners who are fast enough to cover more than 42.195m during the race could have precise preditcions..
+        /// </summary>
+        internal static string What_is_vdot_text {
+            get {
+                return ResourceManager.GetString("What_is_vdot_text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Wings For Life World Run is the unique charity race where you run while the finish line is chasing you..
+        /// </summary>
+        internal static string What_is_wfl_text {
+            get {
+                return ResourceManager.GetString("What_is_wfl_text", resourceCulture);
             }
         }
     }

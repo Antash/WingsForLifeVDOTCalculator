@@ -61,7 +61,12 @@ namespace WFLCalc
 
         public int GetWingsForLifeEstimatedResult()
         {
-            int distMin = 0, distMax = 200000;
+            // correction formula for runners who can cover ultramarathon distance
+            if (vDot > 50)
+            {
+                return (int)Math.Round(42000 + (36.46 * (Math.Log(vDot - 50 + 12.92) - Math.Log(12.92))) * 1000);
+            }
+            int distMin = 0, distMax = 100000;
             while (distMax - distMin > 10)
             {
                 int distAvg = (distMin + distMax) / 2;

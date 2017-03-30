@@ -150,7 +150,35 @@
   <data name="Time_on_distance_text" xml:space="preserve">
     <value>Estimated time on distance: {0}</value>
   </data>
+  <data name="Calculator_title_text" xml:space="preserve">
+    <value>Calculator</value>
+  </data>
   <data name="Enter_your_best_text" xml:space="preserve">
     <value>Enter your best result!</value>
+  </data>
+  <data name="Info_title_text" xml:space="preserve">
+    <value>About</value>
+  </data>
+  <data name="Read_more_text" xml:space="preserve">
+    <value>Read more.</value>
+  </data>
+  <data name="Select_units_text" xml:space="preserve">
+    <value>Units</value>
+  </data>
+  <data name="Settings_title_text" xml:space="preserve">
+    <value>Settings</value>
+  </data>
+  <data name="Vdot_url" xml:space="preserve">
+    <value>http://sportwiki.to/Беговая_форма_(VDOT)</value>
+  </data>
+  <data name="Wfl_url" xml:space="preserve">
+    <value>http://www.wingsforlifeworldrun.com/en/about/about/</value>
+  </data>
+  <data name="What_is_vdot_text" xml:space="preserve">
+    <value>VDOT is runners' performance metric developed by famouse USA scientist and coach Jack Daniels. It is used to determine your training paces as well as to predict performance on other distances based on your results from the last race.
+Unfortunately VDOT doesn't provide enough accuracy for ultramarathon distances. To overcome this obstacle we have developed a correction algorithm so that even those runners who are fast enough to cover more than 42.195m during the race could have precise preditcions.</value>
+  </data>
+  <data name="What_is_wfl_text" xml:space="preserve">
+    <value>Wings For Life World Run is the unique charity race where you run while the finish line is chasing you.</value>
   </data>
 </root>
