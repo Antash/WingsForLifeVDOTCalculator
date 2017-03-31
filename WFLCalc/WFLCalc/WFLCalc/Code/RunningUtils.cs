@@ -4,9 +4,15 @@ namespace WFLCalc
 {
     public static class RunningUtils
     {
-        public static TimeSpan GetPace(int distance, TimeSpan time)
+        public static double ConvertToMiles(this double kilometers)
         {
-            return TimeSpan.FromSeconds(Math.Round(time.TotalSeconds / (distance / 1000d))).StripMilliseconds();
+            return kilometers / 1.60934;
+        }
+
+        public static TimeSpan GetPace(int distance, TimeSpan time, Unit unit = Unit.Kilometers)
+        {
+            double d = unit == Unit.Miles ? (distance / 1000d).ConvertToMiles() : (distance / 1000d);
+            return TimeSpan.FromSeconds(Math.Round(time.TotalSeconds / d)).StripMilliseconds();
         }
 
         public static TimeSpan StripMilliseconds(this TimeSpan time)
@@ -16,7 +22,7 @@ namespace WFLCalc
 
         public static bool HasValue(this double value)
         {
-            return !Double.IsNaN(value) && !Double.IsInfinity(value);
+            return !double.IsNaN(value) && !double.IsInfinity(value);
         }
     }
 }

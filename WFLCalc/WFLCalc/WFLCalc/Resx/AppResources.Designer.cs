@@ -125,7 +125,7 @@ namespace WFLCalc.Resx {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to I will try to run {0} km until the Catcher Car overtakes me..
+        ///   Looks up a localized string similar to I will try to run {0} until the Catcher Car overtakes me..
         /// </summary>
         internal static string I_will_try_to_run_text {
             get {
@@ -152,6 +152,24 @@ namespace WFLCalc.Resx {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Kilometers.
+        /// </summary>
+        internal static string Kilometers_text {
+            get {
+                return ResourceManager.GetString("Kilometers_text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0} km.
+        /// </summary>
+        internal static string Km_text {
+            get {
+                return ResourceManager.GetString("Km_text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Marathon.
         /// </summary>
         internal static string Marathon_text {
@@ -161,11 +179,38 @@ namespace WFLCalc.Resx {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to {0} miles.
+        /// </summary>
+        internal static string Mile_text {
+            get {
+                return ResourceManager.GetString("Mile_text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Miles.
+        /// </summary>
+        internal static string Miles_text {
+            get {
+                return ResourceManager.GetString("Miles_text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to My VDOT is.
         /// </summary>
         internal static string My_vdot_is_text {
             get {
                 return ResourceManager.GetString("My_vdot_is_text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Pace: {0:m\:ss} min/mile..
+        /// </summary>
+        internal static string Pace_miles_text {
+            get {
+                return ResourceManager.GetString("Pace_miles_text", resourceCulture);
             }
         }
         
@@ -188,7 +233,7 @@ namespace WFLCalc.Resx {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Units.
+        ///   Looks up a localized string similar to Selected units.
         /// </summary>
         internal static string Select_units_text {
             get {

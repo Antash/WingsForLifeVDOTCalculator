@@ -136,7 +136,7 @@
     <value>Я могу пробежать</value>
   </data>
   <data name="I_will_try_to_run_text" xml:space="preserve">
-    <value>Я попробую пробежать {0} км. до того момента как финиш обгонит меня.</value>
+    <value>Я попробую пробежать {0} до того момента как финиш обгонит меня.</value>
   </data>
   <data name="Marathon_text" xml:space="preserve">
     <value>Марафон</value>
@@ -158,6 +158,21 @@
   </data>
   <data name="Info_title_text" xml:space="preserve">
     <value>О программе</value>
+  </data>
+  <data name="Kilometers_text" xml:space="preserve">
+    <value>Километры</value>
+  </data>
+  <data name="Km_text" xml:space="preserve">
+    <value>{0} км</value>
+  </data>
+  <data name="Miles_text" xml:space="preserve">
+    <value>Мили</value>
+  </data>
+  <data name="Mile_text" xml:space="preserve">
+    <value>{0} мили</value>
+  </data>
+  <data name="Pace_miles_text" xml:space="preserve">
+    <value>Темп: {0:m\:ss} мин/милю.</value>
   </data>
   <data name="Read_more_text" xml:space="preserve">
     <value>Подробнее.</value>

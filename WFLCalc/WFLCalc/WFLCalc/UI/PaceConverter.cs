@@ -6,17 +6,15 @@ using Xamarin.Forms;
 
 namespace WFLCalc.UI
 {
-    internal class WFLDistanceConverter : IValueConverter
+    internal class PaceConverter : IValueConverter
     {
-        private int originalValue;
+        private TimeSpan originalValue;
 
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
             var units = Settings.CurrentUnits;
-            originalValue = (int)(value ?? 0);
-            double d = units == Unit.Miles ? (originalValue / 1000d).ConvertToMiles()
-                : originalValue / 1000d;
-            return string.Format(units == Unit.Miles ? AppResources.Mile_text : AppResources.Km_text, Math.Round(d, 2));
+            originalValue = (TimeSpan)value;
+            return string.Format(units == Unit.Miles ? AppResources.Pace_miles_text : AppResources.Pace_text, originalValue);
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)

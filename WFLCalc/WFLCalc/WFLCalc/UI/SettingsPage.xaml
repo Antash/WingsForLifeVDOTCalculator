@@ -2,12 +2,20 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:i18n="clr-namespace:WFLCalc;assembly=WFLCalc"
+             xmlns:fe="clr-namespace:FreshEssentials;assembly=FreshEssentials"
              x:Class="WFLCalc.UI.SettingsPage"
              Title="{i18n:Translate Settings_title_text}">
   <ScrollView>
-        <StackLayout Padding="10" Spacing="8">
-            <Label Text="{i18n:Translate Select_units_text}" FontSize="Medium"/>
-            
+        <StackLayout Padding="10">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Label Grid.Column="0" Text="{i18n:Translate Select_units_text}" FontSize="Medium" VerticalOptions="Center"/>
+                <fe:BindablePicker Grid.Column="1" ItemsSource="{Binding Units}" SelectedItem="{Binding SelectedUnit}" />
+                <!--DisplayProperty="Display"-->
+            </Grid>
         </StackLayout>
   </ScrollView>
 </ContentPage>

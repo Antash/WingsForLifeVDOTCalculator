@@ -1,31 +1,72 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Windows.Input;
 using WFLCalc.Resx;
+using WFLCalc.Helpers;
 using Xamarin.Forms;
 
 namespace WFLCalc.UI
 {
     internal class CalculatorViewModel : INotifyPropertyChanged
     {
-        public struct DistanceSample
-        {
-            public int Meters { get; private set; }
-            public string Display { get; private set; }
-
-            public DistanceSample(int distance, string displayValue)
-            {
-                Meters = distance;
-                Display = displayValue;
-            }
-        }
-
         private IVdotCalculator vDotCalculator;
         private TimeSpan time;
         private DistanceSample distance;
+        private DisplayUnit unit;
 
-        public IList<DistanceSample> SampleDistances { get; private set; }
+        public DistanceSample[] SampleDistances { get; } = new []
+            {
+                new DistanceSample(5000, "5K"),
+                new DistanceSample(10000, "10K"),
+                new DistanceSample(15000, "15K"),
+                new DistanceSample(21100, AppResources.HMarathon_text),
+                new DistanceSample(30000, "30K"),
+                new DistanceSample(42195, AppResources.Marathon_text),
+            };
+
+        public DisplayUnit[] Units { get; } = new[] 
+            {
+                new DisplayUnit(Unit.Kilometers, AppResources.Kilometers_text),
+                new DisplayUnit(Unit.Miles, AppResources.Miles_text)
+            };
+        /*
+        public DisplayUnit SelectedUnit
+        {
+            get
+            {
+                return unit ?? Units[(int)Settings.CurrentUnits];
+            }
+            set
+            {
+                if (Settings.CurrentUnits != value.Unit)
+                {
+                    unit = value;
+                    Settings.CurrentUnits = Unit.Miles;
+                    OnPropertyChanged("SelectedUnit");
+                    OnPropertyChanged("WFLRunEstimatedDistance");
+                    OnPropertyChanged("WFLRunEstimatedPace");
+                }
+            }
+        }*/
+
+        public Unit SelectedUnit
+        {
+            get
+            {
+                return Settings.CurrentUnits;
+            }
+            set
+            {
+                if (Settings.CurrentUnits != value)
+                {
+                    //unit = value;
+                    Settings.CurrentUnits = Unit.Miles;
+                    OnPropertyChanged("SelectedUnit");
+                    OnPropertyChanged("WFLRunEstimatedDistance");
+                    OnPropertyChanged("WFLRunEstimatedPace");
+                }
+            }
+        }
 
         public DistanceSample SelectedDistance
         {
@@ -35,8 +76,11 @@ namespace WFLCalc.UI
             }
             set
             {
-                distance = value;
-                OnPropertyChanged("SelectedDistance");
+                if (distance != value)
+                {
+                    distance = value;
+                    OnPropertyChanged("SelectedDistance");
+                }
             }
         }
 
@@ -87,15 +131,6 @@ namespace WFLCalc.UI
 
         public CalculatorViewModel()
         {
-            SampleDistances = new List<DistanceSample>
-            {
-                new DistanceSample(5000, "5K"),
-                new DistanceSample(10000, "10K"),
-                new DistanceSample(15000, "15K"),
-                new DistanceSample(21100, Resx.AppResources.HMarathon_text),
-                new DistanceSample(30000, "30K"),
-                new DistanceSample(42195, Resx.AppResources.Marathon_text),
-            };
             SelectedDistance = SampleDistances[1];
             IncreaseVdotCommand = new Command(() => ChangeVdot(1));
             DecreaseVdotCommand = new Command(() => ChangeVdot(-1));
@@ -110,7 +145,7 @@ namespace WFLCalc.UI
             Vdot = vDotCalculator.GetVdot();
             WFLRunEstimatedDistance = vDotCalculator.GetWingsForLifeEstimatedResult();
             WFLRunEstimatedTime = WingsForLifeModel.GetTime(WFLRunEstimatedDistance);
-            WFLRunEstimatedPace = RunningUtils.GetPace(WFLRunEstimatedDistance, WFLRunEstimatedTime);
+            WFLRunEstimatedPace = RunningUtils.GetPace(WFLRunEstimatedDistance, WFLRunEstimatedTime, Settings.CurrentUnits);
             Initialized = true;
             OnPropertyChanged("Vdot");
             OnPropertyChanged("WFLRunEstimatedDistance");
@@ -132,7 +167,7 @@ namespace WFLCalc.UI
             Vdot = vDotCalculator.GetVdot();
             WFLRunEstimatedDistance = vDotCalculator.GetWingsForLifeEstimatedResult();
             WFLRunEstimatedTime = WingsForLifeModel.GetTime(WFLRunEstimatedDistance);
-            WFLRunEstimatedPace = RunningUtils.GetPace(WFLRunEstimatedDistance, WFLRunEstimatedTime);
+            WFLRunEstimatedPace = RunningUtils.GetPace(WFLRunEstimatedDistance, WFLRunEstimatedTime, Settings.CurrentUnits);
             SampleTime = vDotCalculator.GetTime(distance.Meters);
             OnPropertyChanged("Vdot");
             OnPropertyChanged("WFLRunEstimatedDistance");

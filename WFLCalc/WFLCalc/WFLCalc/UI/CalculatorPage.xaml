@@ -10,13 +10,14 @@
         <ResourceDictionary>
             <local:WFLDistanceConverter x:Key="WFLDistanceConverter"/>
             <local:VdotConverter x:Key="VdotConverter"/>
+            <local:PaceConverter x:Key="PaceConverter"/>
             <local:WFLTimeConverter x:Key="WFLTimeConverter"/>
         </ResourceDictionary>
     </ContentPage.Resources>
     <ScrollView>
         <StackLayout x:Name="lMain" Spacing="8" Padding="10">
             <Label Text="{i18n:Translate Enter_your_best_text}" FontSize="Medium" HorizontalOptions="Center"/>
-            <Grid x:Name="LayoutRoot">
+            <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"/>
                     <ColumnDefinition Width="*"/>
@@ -41,18 +42,20 @@
                        VerticalOptions="Center"/>
                     <Button Text="+" Command="{Binding IncreaseVdotCommand}" IsEnabled="{Binding VdotCanInc}" FontSize="Medium"/>
                 </StackLayout>
-                <Label Text="{Binding WFLRunEstimatedDistance, StringFormat={i18n:Translate I_will_try_to_run_text}, Converter={StaticResource WFLDistanceConverter}}"
-                   FontSize="Medium"
-                   HorizontalTextAlignment="Center"
-                   HorizontalOptions="Center"/>
-                <Label Text="{Binding WFLRunEstimatedTime, Converter={StaticResource WFLTimeConverter}}"
-                   FontSize="Medium"
-                   HorizontalTextAlignment="Center"
-                   HorizontalOptions="Center"/>
-                <Label Text="{Binding WFLRunEstimatedPace, StringFormat={i18n:Translate Pace_text}}"
-                   FontSize="Medium"
-                   HorizontalTextAlignment="Center"
-                   HorizontalOptions="Center"/>
+                <StackLayout>
+                    <Label Text="{Binding WFLRunEstimatedDistance, StringFormat={i18n:Translate I_will_try_to_run_text}, Converter={StaticResource WFLDistanceConverter}}"
+                       FontSize="Medium"
+                       HorizontalTextAlignment="Center"
+                       HorizontalOptions="Center"/>
+                    <Label Text="{Binding WFLRunEstimatedTime, Converter={StaticResource WFLTimeConverter}}"
+                       FontSize="Medium"
+                       HorizontalTextAlignment="Center"
+                       HorizontalOptions="Center"/>
+                    <Label Text="{Binding WFLRunEstimatedPace, Converter={StaticResource PaceConverter}}"
+                       FontSize="Medium"
+                       HorizontalTextAlignment="Center"
+                       HorizontalOptions="Center"/>
+                </StackLayout>
             </StackLayout>
         </StackLayout>
     </ScrollView>
