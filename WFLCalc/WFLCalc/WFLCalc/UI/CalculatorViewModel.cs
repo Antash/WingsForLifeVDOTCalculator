@@ -29,7 +29,7 @@ namespace WFLCalc.UI
                 new DisplayUnit(Unit.Kilometers, AppResources.Kilometers_text),
                 new DisplayUnit(Unit.Miles, AppResources.Miles_text)
             };
-        /*
+        
         public DisplayUnit SelectedUnit
         {
             get
@@ -41,25 +41,6 @@ namespace WFLCalc.UI
                 if (Settings.CurrentUnits != value.Unit)
                 {
                     unit = value;
-                    Settings.CurrentUnits = Unit.Miles;
-                    OnPropertyChanged("SelectedUnit");
-                    OnPropertyChanged("WFLRunEstimatedDistance");
-                    OnPropertyChanged("WFLRunEstimatedPace");
-                }
-            }
-        }*/
-
-        public Unit SelectedUnit
-        {
-            get
-            {
-                return Settings.CurrentUnits;
-            }
-            set
-            {
-                if (Settings.CurrentUnits != value)
-                {
-                    //unit = value;
                     Settings.CurrentUnits = Unit.Miles;
                     OnPropertyChanged("SelectedUnit");
                     OnPropertyChanged("WFLRunEstimatedDistance");

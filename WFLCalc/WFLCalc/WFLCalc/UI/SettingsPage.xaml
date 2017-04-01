@@ -6,16 +6,20 @@
              x:Class="WFLCalc.UI.SettingsPage"
              Title="{i18n:Translate Settings_title_text}">
   <ScrollView>
-        <StackLayout Padding="10">
+        <StackLayout Padding="10" Spacing="8">
+            <!--
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
                 <Label Grid.Column="0" Text="{i18n:Translate Select_units_text}" FontSize="Medium" VerticalOptions="Center"/>
-                <fe:BindablePicker Grid.Column="1" ItemsSource="{Binding Units}" SelectedItem="{Binding SelectedUnit}" />
-                <!--DisplayProperty="Display"-->
-            </Grid>
+                <fe:BindablePicker Grid.Column="1" ItemsSource="{Binding Units}" SelectedItem="{Binding SelectedUnit}" DisplayProperty="Display"/>
+            </Grid>-->
+
+            <Label Grid.Column="0" Text="{i18n:Translate Select_units_text}" FontSize="Medium" VerticalOptions="Center"/>
+            <fe:BindablePicker Grid.Column="1" ItemsSource="{Binding Units}" SelectedItem="{Binding SelectedUnit}" DisplayProperty="Display"/>
+
         </StackLayout>
   </ScrollView>
 </ContentPage>

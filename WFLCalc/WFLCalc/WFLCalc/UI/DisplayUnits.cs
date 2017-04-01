@@ -18,7 +18,7 @@
 
         public static bool operator ==(DisplayUnit obj1, DisplayUnit obj2)
         {
-            if (obj1 == null || obj2 == null)
+            if (ReferenceEquals(obj1, null) || ReferenceEquals(obj2, null))
             {
                 return false;
             }
