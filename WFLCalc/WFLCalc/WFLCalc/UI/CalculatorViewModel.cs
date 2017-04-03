@@ -41,7 +41,7 @@ namespace WFLCalc.UI
                 if (Settings.CurrentUnits != value.Unit)
                 {
                     unit = value;
-                    Settings.CurrentUnits = Unit.Miles;
+                    Settings.CurrentUnits = value.Unit;
                     OnPropertyChanged("SelectedUnit");
                     OnPropertyChanged("WFLRunEstimatedDistance");
                     OnPropertyChanged("WFLRunEstimatedPace");

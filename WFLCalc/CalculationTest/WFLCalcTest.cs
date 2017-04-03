@@ -22,6 +22,7 @@ namespace CalculationTest
             Assert.AreEqual(new TimeSpan(0, 30, 0), WingsForLifeModel.GetTime(0));
         }
 
+        [Ignore]
         [TestMethod]
         public void TestWFLVdot()
         {
