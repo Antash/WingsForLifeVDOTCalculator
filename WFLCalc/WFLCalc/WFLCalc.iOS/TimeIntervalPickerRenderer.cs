@@ -10,6 +10,7 @@ using Xamarin.Forms;
 using Xamarin.Forms.Platform.iOS;
 using WFLCalc.iOS;
 using WFLCalc.UI;
+using Foundation;
 
 [assembly: ExportRenderer(typeof(TimeIntervalPicker), typeof(TimeCountdownPickerRenderer))]
 namespace WFLCalc.iOS
@@ -64,13 +65,13 @@ namespace WFLCalc.iOS
             nfloat componentWidth = new nfloat(DisplayWidth / ComponentCount / DisplayScale);
 
             var hoursLabel = new UILabel(new CGRect(componentWidth, verticalPosition, _labelSize, _labelSize));
-            hoursLabel.Text = "h";
+            hoursLabel.Text = NSBundle.MainBundle.LocalizedString("hours", "Short hours input");
 
             var minutesLabel = new UILabel(new CGRect((componentWidth * 3) + (componentWidth / 2), verticalPosition, _labelSize, _labelSize));
-            minutesLabel.Text = "m";
+            minutesLabel.Text = NSBundle.MainBundle.LocalizedString("minutes", "Short minutes input");
 
             var secondsLabel = new UILabel(new CGRect((componentWidth * 5) + (componentWidth / 2), verticalPosition, _labelSize, _labelSize));
-            secondsLabel.Text = "s";
+            secondsLabel.Text = NSBundle.MainBundle.LocalizedString("seconds", "Short seconds input");
 
             customModelPickerView.AddSubview(hoursLabel);
             customModelPickerView.AddSubview(minutesLabel);

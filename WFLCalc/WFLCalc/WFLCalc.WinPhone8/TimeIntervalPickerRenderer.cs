@@ -19,7 +19,7 @@ namespace WFLCalc.WinPhone8
             base.OnElementChanged(e);
             this.timeIntervalPicker = e.NewElement;
             var picker = new TimeSpanPicker();
-            picker.SetValue(TimeSpanPicker.ValueProperty, timeIntervalPicker.SelectedTime);
+            picker.SetValue(TimeSpanPicker.ValueProperty, TimeSpan.FromSeconds(0));
             picker.ValueChanged += OnValueChanged;
             this.SetNativeControl(picker);
         }
