@@ -84,18 +84,25 @@ namespace WFLCalc.UI
         }
 
         public bool DataEntered { get; set; }
+
         public bool Initialized { get; set; }
+
         public bool VdotCanInc
         {
             get { return Vdot < VdotCalculator.MaxVdot && Vdot > 0; }
         }
+
         public bool VdotCanDec
         {
             get { return Vdot > VdotCalculator.MinVdot; }
         }
+
         public double Vdot { get; set; }
+
         public int WFLRunEstimatedDistance { get; set; }
+
         public TimeSpan WFLRunEstimatedTime { get; set; }
+
         public TimeSpan WFLRunEstimatedPace { get; set; }
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -110,6 +117,8 @@ namespace WFLCalc.UI
 
         public ICommand OpenWflInfoCommand { get; protected set; }
 
+        public ICommand ShareCommand { get; protected set; }
+
         public CalculatorViewModel()
         {
             SelectedDistance = SampleDistances[1];
@@ -118,6 +127,10 @@ namespace WFLCalc.UI
             CalculateVdotCommand = new Command(CalculateVdot);
             OpenVdotInfoCommand = new Command(() => { Device.OpenUri(new Uri(AppResources.Vdot_url)); });
             OpenWflInfoCommand = new Command(() => { Device.OpenUri(new Uri(AppResources.Wfl_url)); });
+
+            var webImage = new Image { Aspect = Aspect.AspectFit };
+            var source = ImageSource.FromUri(new Uri("https://xamarin.com/content/images/pages/forms/example-app.png"));
+            ShareCommand = new Command(() => MessagingCenter.Send<ImageSource>(source, "Share"));
         }
 
         private void CalculateVdot(object obj)
